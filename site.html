@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+<body>
+    <title>Calculadora Led Verde</title>
+</body>
+</html>
+
+<div class="calculadora">
+    <div id="display"></div>
+    <div class="botoes">
+      <button id="limpar" class="limpar">C</button>
+      <button class="btn">/</button>
+      <button class="btn">*</button>
+      <button class="btn">-</button>
+
+      <button class="btn">7</button>
+      <button class="btn">8</button>
+      <button class="btn">9</button>
+      <button class="btn">+</button>
+
+      <button class="btn">4</button>
+      <button class="btn">5</button>
+      <button class="btn">6</button>
+      <button class="btn">.</button>
+
+      <button class="btn">1</button>
+      <button class="btn">2</button>
+      <button class="btn">3</button>
+      <button id="igual" class="igual">=</button>
+
+      <button class="btn">0</button>
+    </div>
+  </div>
+
+  <script>
+    const display = document.getElementById('display');
+    const botoes = document.querySelectorAll('.btn');
+
+    botoes.forEach(botao => {
+      botao.addEventListener('click', () => {
+        display.innerText += botao.innerText;
+      });
+    });
+
+    document.getElementById('limpar').addEventListener('click', () => {
+      display.innerText = '';
+    });
+
+    document.getElementById('igual').addEventListener('click', () => {
+      try {
+        display.innerText = eval(display.innerText);
+      } catch {
+        display.innerText = 'Erro';
+      }
+    });
+  </script>
+
+</body>
+</html>
+
+
+
